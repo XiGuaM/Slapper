@@ -1,4 +1,5 @@
 <?php
+
 namespace slapper\entities;
 
 use pocketmine\entity\Entity;
@@ -64,9 +65,8 @@ class SlapperHuman extends Human {
 
 			$pk = new AddPlayerPacket();
 			$pk->uuid = $uuid;
-			$pk->username = "";
-			$pk->entityRuntimeId = $entityId;
-			$pk->eid = $entityId; // TODO: remove when ALPHA6 is merged into master
+			$pk->username = $this->getDisplayName($player);
+			$pk->eid = $entityId;
 			$pk->x = $this->x;
 			$pk->y = $this->y;
 			$pk->z = $this->z;
@@ -74,6 +74,8 @@ class SlapperHuman extends Human {
 			$pk->yaw = $this->yaw;
 			$pk->pitch = $this->pitch;
 			$pk->item = $this->getInventory()->getItemInHand();
+			$pk->slim = ($this->skinId == "Standard_CustomSlim");
+			$pk->skin = $this->skin;
 			$pk->metadata = $this->dataProperties;
 			$pk->metadata[self::DATA_NAMETAG] = [self::DATA_TYPE_STRING, $this->getDisplayName($player)];
 			$player->dataPacket($pk);

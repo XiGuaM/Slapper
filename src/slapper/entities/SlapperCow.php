@@ -1,4 +1,5 @@
 <?php
+
 namespace slapper\entities;
 
 class SlapperCow extends SlapperEntity {

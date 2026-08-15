@@ -1,4 +1,5 @@
 <?php
+
 namespace slapper\entities\other;
 
 use pocketmine\level\Level;
