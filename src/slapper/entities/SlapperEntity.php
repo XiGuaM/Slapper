@@ -1,4 +1,5 @@
 <?php
+
 namespace slapper\entities;
 
 use pocketmine\entity\Entity;
@@ -72,8 +73,7 @@ class SlapperEntity extends Entity {
 
 	public function spawnTo(Player $player) {
 		$pk = new AddEntityPacket();
-		$pk->entityRuntimeId = $this->getId();
-		$pk->eid = $this->getId(); // TODO: remove when ALPHA6 is merged into master
+		$pk->eid = $this->getId();
 		$pk->type = $this->entityId;
 		$pk->x = $this->x;
 		$pk->y = $this->y + $this->offset;

@@ -4,7 +4,6 @@ namespace slapper;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\command\ConsoleCommandSender;
 use pocketmine\entity\Entity;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityDamageEvent;
@@ -64,7 +63,6 @@ use slapper\entities\SlapperZombieVillager;
 use slapper\events\SlapperCreationEvent;
 use slapper\events\SlapperDeletionEvent;
 use slapper\events\SlapperHitEvent;
-
 
 class Main extends PluginBase implements Listener {
 
@@ -631,7 +629,7 @@ class Main extends PluginBase implements Listener {
 	}
 
 	private function makeNBT($type, Player $player) {
-		$nbt = new CompoundTag;
+		$nbt = new CompoundTag();
 		$nbt->Pos = new ListTag("Pos", [
 			new DoubleTag(0, $player->getX()),
 			new DoubleTag(1, $player->getY()),
@@ -659,7 +657,6 @@ class Main extends PluginBase implements Listener {
 	}
 
 	/**
-	 * @param EntityDamageEvent $event
 	 * @ignoreCancelled true
 	 */
 	public function onEntityDamage(EntityDamageEvent $event) {

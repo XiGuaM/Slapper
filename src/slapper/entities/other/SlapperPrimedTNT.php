@@ -1,8 +1,8 @@
 <?php
+
 namespace slapper\entities\other;
 
 use slapper\entities\SlapperEntity;
-
 
 class SlapperPrimedTNT extends SlapperEntity {
 
